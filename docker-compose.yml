@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+    vuejs-docker:
+        build:
+            context: .
+            dockerfile: Dockerfile
+            target: "develop-stage"
+        volumes:
+            - ".:/app"
+            - "/app/node_modules"
+        ports:
+            - "8080:8080"
