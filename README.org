@@ -1,0 +1,28 @@
+#+TITLE: VueJS Docker
+#+AUTHOR: Sean Brage
+
+* VueJS Docker - Local, Build, & Production Demo
+
+This simple repository demonstrates a fully-functional workflow
+utilizing Docker to containerize a VueJS application for local
+development and even production deployment with Nginx.
+
+** Getting Started
+- Make sure you have Docker installed on your machine
+- Clone this repo and run ~$ docker-compose up --build~
+
+That's it! The app will be running locally, and can be accessed at
+~http://localhost:8000~. Changes made to files under the ~/src~
+directory will reflect in your browser automatically -- yep, webpack
+hot reloading works in Docker!
+
+** Building the app
+Simply run ~$ docker build -t vuejs-docker~ to build the container
+with a production-ready bundle of the VueJS application
+
+** Running in production
+1. ~$ docker built -t vuejs-docker .~
+2. ~$ docker run -it -p 8000:80 --rm vuejs-docker~
+
+The application will now be running and served via Nginx in the Docker
+container. It can still be access locally at ~http://localhost:8000~.
